@@ -60,7 +60,7 @@
   background: #79a9ef;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: -10px;
+  margin-top: -17px;
   z-index: 1;
 }
 
@@ -70,6 +70,11 @@
 .carousel input:checked + label {
   border: 1px solid #79a9ef;
   background: transparent;
+}
+
+.carousel .slides span {
+  display: block;
+  margin-top: 10px;
 }
 
 .carousel ul {
@@ -114,12 +119,12 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
 @media screen and (max-width: 650px) {
   .carousel {
     display: grid;
-    grid-template-columns: 1fr repeat(5, 20px);
+    grid-template-columns: 1fr repeat(5, 20px) 1fr;
   }
 
   .carousel .slides {
     grid-column-start: 1;
-    grid-column-end: 7;
+    grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: 2;
   }
@@ -128,15 +133,27 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
     grid-column-start: 2;
   }
 
+  .carousel .slides span {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .carousel input + label {
+    margin-top: -50px;
+  }
+
   .carousel {
     max-width: 100%;
   }
+
   .carousel .slides {
     width: 100%;
   }
+
   .carousel .slides img {
     width: var(--slider-adaptive-width);
   }
+
   .carousel #slide-1:checked ~ .slides li:nth-child(1) {
     margin-left: calc(0 * var(--slider-adaptive-width));
   }
