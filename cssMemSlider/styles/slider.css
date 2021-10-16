@@ -1,0 +1,159 @@
+:root {
+  --slider-max-width: 600px;
+  --slider-adaptive-width: calc(
+    100vw - var(--slider-padding) * 2 - var(--slider-border-size) * 2
+  );
+  --slider-padding: 20px;
+  --slider-border-size: 5px;
+}
+
+.carousel {
+  width: 100%;
+  background: #25282a;
+  border-radius: 4px;
+  border: 5px solid #f6f8fa;
+  box-shadow: 1px 1px var(--slider-border-size) rgba(0, 0, 0, 0.3);
+  padding: var(--slider-padding);
+  max-width: calc(
+    var(--slider-max-width) + var(--slider-border-size) * 2 +
+      var(--slider-padding) * 2
+  );
+  color: #fff;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: grid;
+  grid-template-columns: 1fr repeat(5, 20px);
+}
+
+.carousel .slides {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.carousel #slide-1 + label {
+  grid-column-start: 2;
+}
+
+.carousel .slides li {
+  width: var(--slider-max-width);
+}
+
+.carousel .slides img {
+  max-width: var(--slider-max-width);
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel input {
+  display: none;
+}
+
+.carousel input + label {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #79a9ef;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.carousel input + label:hover {
+  background: #fff;
+}
+.carousel input:checked + label {
+  border: 1px solid #79a9ef;
+  background: transparent;
+}
+
+.carousel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel .slides {
+  width: var(--slider-max-width);
+  overflow: hidden;
+  display: flex;
+}
+
+.carousel .slides li {
+  transition: all 1s;
+}
+
+.carousel #slide-1:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(0 * var(--slider-max-width));
+}
+
+.carousel #slide-2:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-1 * var(--slider-max-width));
+}
+
+.carousel #slide-3:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-2 * var(--slider-max-width));
+}
+
+.carousel #slide-4:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-3 * var(--slider-max-width));
+}
+
+.carousel #slide-5:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-4 * var(--slider-max-width));
+}
+
+/* 
+Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + slider-max-width)
+*/
+@media screen and (max-width: 650px) {
+  .carousel {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 20px);
+  }
+
+  .carousel .slides {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .carousel #slide-1 + label {
+    grid-column-start: 2;
+  }
+
+  .carousel {
+    max-width: 100%;
+  }
+  .carousel .slides {
+    width: 100%;
+  }
+  .carousel .slides img {
+    width: var(--slider-adaptive-width);
+  }
+  .carousel #slide-1:checked ~ .slides li:nth-child(1) {
+    margin-left: calc(0 * var(--slider-adaptive-width));
+  }
+
+  .carousel #slide-2:checked ~ .slides li:nth-child(1) {
+    margin-left: calc(-1 * var(--slider-adaptive-width));
+  }
+
+  .carousel #slide-3:checked ~ .slides li:nth-child(1) {
+    margin-left: calc(-2 * var(--slider-adaptive-width));
+  }
+
+  .carousel #slide-4:checked ~ .slides li:nth-child(1) {
+    margin-left: calc(-3 * var(--slider-adaptive-width));
+  }
+
+  .carousel #slide-5:checked ~ .slides li:nth-child(1) {
+    margin-left: calc(-4 * var(--slider-adaptive-width));
+  }
+}

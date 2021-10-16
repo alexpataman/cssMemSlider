@@ -1,0 +1,130 @@
+:root {
+  --main-gray-color: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  line-height: 24px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+a {
+  color: #1f1f8f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body > header {
+  background: #000;
+  margin-bottom: 20px;
+}
+
+body > header a {
+  color: #fff;
+  line-height: 40px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+body > header nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  padding: 20px 0;
+  border-top: 4px solid #000;
+}
+
+footer .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer nav a {
+  margin-left: 20px;
+}
+
+footer nav time {
+  flex-grow: 1;
+}
+
+footer nav img {
+  height: 40px;
+}
+
+.content {
+  width: 960px;
+  margin: auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+main header {
+  text-align: center;
+}
+
+main section h2 {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+main section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--main-gray-color);
+  width: 300px;
+  transition: width 1s;
+}
+
+main section:hover h2::after {
+  width: 100%;
+}
+
+main section {
+  margin-bottom: 50px;
+}
+
+main section:last-child {
+  border: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .content {
+    width: 100%;
+  }
+  header,
+  footer {
+    padding: 0 20px;
+  }
+}
