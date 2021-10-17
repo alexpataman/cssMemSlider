@@ -63,6 +63,10 @@ footer {
   border-top: 4rem solid #000;
 }
 
+footer a {
+  color: #000;
+}
+
 footer .content {
   display: flex;
   justify-content: space-between;
@@ -131,5 +135,11 @@ main section:last-child {
   header,
   footer {
     padding: 0 20rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer nav {
+    display: none;
   }
 }
