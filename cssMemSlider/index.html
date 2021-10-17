@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Mem Slider</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="./styles/slider.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+</head>
+
+<body>
+  <header class="header" id="header-navigation">
+    <div class="content">
+      <nav>
+        <a href="https://rs.school/" target="_blank">
+          RS School
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="content">
+    <header>
+      <h1>CSS Mem Slider</h1>
+    </header>
+    <section>
+      <div class="carousel">
+        <input type="radio" id="slide-1" name="slides" value="slide-1" checked /><label for="slide-1"></label>
+        <input type="radio" id="slide-2" name="slides" value="slide-2" /><label for="slide-2"></label>
+        <input type="radio" id="slide-3" name="slides" value="slide-3" /><label for="slide-3"></label>
+        <input type="radio" id="slide-4" name="slides" value="slide-4" /><label for="slide-4"></label>
+        <input type="radio" id="slide-5" name="slides" value="slide-5" /><label for="slide-5"></label>
+        <ul class="slides">
+          <li class="slide slide-1">
+            <img src="./assets/img/slider/1.jpg" />
+          </li>
+          <li class="slide slide-2">
+            <img src="./assets/img/slider/2.jpg" />
+          </li>
+          <li class="slide slide-3">
+            <img src="./assets/img/slider/3.jpg" />
+          </li>
+          <li class="slide slide-4">
+            <img src="./assets/img/slider/4.jpg" />
+          </li>
+          <li class="slide slide-5">
+            <img src="./assets/img/slider/5.jpg" />
+          </li>
+        </ul>
+        <ul class="slides slides-texts">
+          <li><span>Не говори глупости, Питонослав</span></li>
+          <li><span>Стресс в IT? Нет, не слышал</span></li>
+          <li><span>Нет пределов совершенству!</span></li>
+          <li><span>Спасём детей от программирования</span></li>
+          <li><span>Подержи моё пиво, я собираюсь изучить новый JS Framework</span></li>
+        </ul>
+      </div>
+    </section>
+    <section class="check">
+      <h2>Самопроверка</h2>
+      <ol>
+        <li>Выполнено всё из секции Требования к репозиторию и как сабмитить задание +30</li>
+        <li>Слайдер позиционируется с равными отступами слева и справа +10</li>
+        <li>Соблюдено расположение картинок, подписей к ним и контролов +10</li>
+        <li>Имеется анимация для смены картинок +20</li>
+        <li>Имеется анимация для смены подписей к картинкам +10</li>
+        <li>Подписи к картинкам должны быть строковыми значениями (текстом), т.е. текст не должен быть частью картинки
+          +15</li>
+        <li>Каждый контрол имеет большую область нажатия, чем размер самого контрола +5</li>
+        <li>Контролы имеют интерактивность (момент наведения, момент нажатия, активный контрол, изменение курсора) +10
+        </li>
+        <li>Имеется мобилная версия слайдера и соблюдено расположение картинок, подписей к ним и контролов +20</li>
+        <li>Используются относительные едициы измерения для основных блоков (rem, em, %, vh, vw, fr and etc... ) +10
+        </li>
+        <li>Все блоки/составные части слайдера (контролы, картинки, подписи к слайдеру) спозиционированы без
+          использования
+          position: absolute +10</li>
+      </ol>
+    </section>
+  </main>
+  <footer>
+    <div class="content">
+      <time datetime="2021">2021</time> <a href="https://github.com/alexpataman">&copy; Alexander Pataman</a>
+      <nav>
+        <a href="https://rs.school/js/" target="_blank"><img src="./assets/svg/logo-rsschool.svg"
+            alt="rs.school js" /></a>
+        <a href="https://github.com/alexpataman"><img src="./assets/svg/logo-github.svg" alt="github" /></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+
+</html>

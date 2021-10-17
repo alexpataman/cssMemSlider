@@ -1,0 +1,206 @@
+:root {
+  --slider-max-width: 600rem;
+  --slider-max-text-width: calc(
+    var(--slider-max-width) - var(--slider-control-size) *
+      var(--slider-number-of-slides)
+  );
+  --slider-adaptive-width: calc(
+    100vw - var(--slider-padding) * 2 - var(--slider-border-size) * 2
+  );
+  --slider-padding: 20rem;
+  --slider-border-size: 5rem;
+  --slider-control-size: 20rem;
+  --slider-number-of-slides: 5;
+}
+
+.carousel {
+  width: 100%;
+  background: #25282a;
+  border-radius: 4rem;
+  border: 5rem solid #f6f8fa;
+  box-shadow: 1rem 1rem var(--slider-border-size) rgba(0, 0, 0, 0.3);
+  padding: var(--slider-padding);
+  max-width: calc(
+    var(--slider-max-width) + var(--slider-border-size) * 2 +
+      var(--slider-padding) * 2
+  );
+  color: #fff;
+  margin: 0 auto;
+  font-size: 16rem;
+  display: grid;
+  grid-template-columns: 1fr repeat(
+      var(--slider-number-of-slides),
+      var(--slider-control-size)
+    );
+  align-items: start;
+}
+
+.carousel .slides {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  line-height: 0;
+  margin-bottom: 10rem;
+}
+
+.carousel .slides.slides-texts {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  line-height: 24rem;
+}
+
+.carousel #slide-1 + label {
+  grid-column-start: 2;
+}
+
+.carousel .slides li {
+  min-width: var(--slider-max-width);
+}
+
+.carousel .slides-texts li {
+  min-width: var(--slider-max-text-width);
+}
+
+.carousel .slides img,
+.carousel .slides span {
+  max-width: var(--slider-max-width);
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel input {
+  display: none;
+}
+
+.carousel input + label {
+  content: "";
+  display: block;
+  cursor: pointer;
+  z-index: 1;
+  height: var(--slider-control-size);
+  width: var(--slider-control-size);
+  background: #25282a;
+}
+
+.carousel input + label:after {
+  content: "";
+  width: 10rem;
+  height: 10rem;
+  background: #79a9ef;
+  border-radius: 50%;
+  display: block;
+  margin: 5rem auto;
+}
+
+.carousel input + label:hover:after {
+  background: #fff;
+}
+.carousel input:checked + label:after {
+  border: 1rem solid #79a9ef;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.carousel .slides span {
+  display: block;
+}
+
+.carousel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 5rem;
+}
+
+.carousel .slides {
+  width: var(--slider-max-width);
+  overflow: hidden;
+  display: flex;
+}
+
+.carousel .slides-texts {
+  width: var(--slider-max-text-width);
+}
+
+.carousel .slides li {
+  transition: all 1s;
+}
+
+.carousel #slide-1:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(0 * 100%);
+}
+
+.carousel #slide-2:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-1 * 100%);
+}
+
+.carousel #slide-3:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-2 * 100%);
+}
+
+.carousel #slide-4:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-3 * 100%);
+}
+
+.carousel #slide-5:checked ~ .slides li:nth-child(1) {
+  margin-left: calc(-4 * 100%);
+}
+
+/* 
+Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + slider-max-width)
+*/
+@media screen and (max-width: 650px) {
+  .carousel {
+    display: grid;
+    grid-template-columns:
+      1fr repeat(var(--slider-number-of-slides), var(--slider-control-size))
+      1fr;
+  }
+
+  .carousel .slides {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .carousel .slides.slides-texts {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 8;
+  }
+
+  .carousel #slide-1 + label {
+    grid-column-start: 2;
+  }
+
+  .carousel label {
+    margin: 15rem 0 5rem;
+  }
+
+  .carousel .slides span {
+    display: block;
+  }
+
+  .carousel input + label {
+    margin: 0 0 5rem;
+  }
+
+  .carousel .slides {
+    width: 100%;
+  }
+
+  .carousel .slides.slides-texts li,
+  .carousel .slides li {
+    min-width: var(--slider-adaptive-width);
+  }
+
+  .carousel .slides img,
+  .carousel .slides span,
+  .carousel .slides.slides-texts {
+    width: var(--slider-adaptive-width);
+  }
+}
