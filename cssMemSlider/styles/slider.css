@@ -1,10 +1,16 @@
 :root {
   --slider-max-width: 600rem;
+  --slider-max-text-width: calc(
+    var(--slider-max-width) - var(--slider-control-size) *
+      var(--slider-number-of-slides)
+  );
   --slider-adaptive-width: calc(
     100vw - var(--slider-padding) * 2 - var(--slider-border-size) * 2
   );
   --slider-padding: 20rem;
   --slider-border-size: 5rem;
+  --slider-control-size: 20rem;
+  --slider-number-of-slides: 5;
 }
 
 .carousel {
@@ -20,12 +26,13 @@
   );
   color: #fff;
   margin: 0 auto;
-}
-
-.carousel {
-  display: grid;
-  grid-template-columns: 1fr repeat(5, 20rem);
   font-size: 16rem;
+  display: grid;
+  grid-template-columns: 1fr repeat(
+      var(--slider-number-of-slides),
+      var(--slider-control-size)
+    );
+  align-items: start;
 }
 
 .carousel .slides {
@@ -33,6 +40,16 @@
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 2;
+  line-height: 0;
+  margin-bottom: 10rem;
+}
+
+.carousel .slides.slides-texts {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  line-height: 24rem;
 }
 
 .carousel #slide-1 + label {
@@ -40,10 +57,15 @@
 }
 
 .carousel .slides li {
-  width: var(--slider-max-width);
+  min-width: var(--slider-max-width);
 }
 
-.carousel .slides img {
+.carousel .slides-texts li {
+  min-width: var(--slider-max-text-width);
+}
+
+.carousel .slides img,
+.carousel .slides span {
   max-width: var(--slider-max-width);
   height: auto;
   object-fit: cover;
@@ -57,10 +79,9 @@
   content: "";
   display: block;
   cursor: pointer;
-  margin-top: -20rem;
   z-index: 1;
-  height: 20rem;
-  width: 20rem;
+  height: var(--slider-control-size);
+  width: var(--slider-control-size);
   background: #25282a;
 }
 
@@ -85,7 +106,6 @@
 
 .carousel .slides span {
   display: block;
-  margin-top: 10rem;
 }
 
 .carousel ul {
@@ -99,6 +119,10 @@
   width: var(--slider-max-width);
   overflow: hidden;
   display: flex;
+}
+
+.carousel .slides-texts {
+  width: var(--slider-max-text-width);
 }
 
 .carousel .slides li {
@@ -125,13 +149,35 @@
   margin-left: calc(-4 * var(--slider-max-width));
 }
 
+.carousel #slide-1:checked ~ .slides-texts li:nth-child(1) {
+  margin-left: calc(0 * var(--slider-max-text-width));
+}
+
+.carousel #slide-2:checked ~ .slides-texts li:nth-child(1) {
+  margin-left: calc(-1 * var(--slider-max-text-width));
+}
+
+.carousel #slide-3:checked ~ .slides-texts li:nth-child(1) {
+  margin-left: calc(-2 * var(--slider-max-text-width));
+}
+
+.carousel #slide-4:checked ~ .slides-texts li:nth-child(1) {
+  margin-left: calc(-3 * var(--slider-max-text-width));
+}
+
+.carousel #slide-5:checked ~ .slides-texts li:nth-child(1) {
+  margin-left: calc(-4 * var(--slider-max-text-width));
+}
+
 /* 
 Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + slider-max-width)
 */
 @media screen and (max-width: 650px) {
   .carousel {
     display: grid;
-    grid-template-columns: 1fr repeat(5, 20rem) 1fr;
+    grid-template-columns:
+      1fr repeat(var(--slider-number-of-slides), var(--slider-control-size))
+      1fr;
   }
 
   .carousel .slides {
@@ -140,29 +186,44 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
     grid-row-start: 1;
     grid-row-end: 2;
   }
+  .carousel .slides.slides-texts {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 8;
+  }
 
   .carousel #slide-1 + label {
     grid-column-start: 2;
   }
 
+  .carousel label {
+    margin: 15rem 0 5rem;
+  }
+
   .carousel .slides span {
     display: block;
-    margin-top: 40rem;
   }
 
   .carousel input + label {
-    margin-top: -50rem;
+    margin: 0 0 5rem;
   }
 
-  .carousel {
-    max-width: 100%;
+  .carousel .slides.slides-texts li,
+  .carousel .slides li {
+    min-width: var(--slider-adaptive-width);
+  }
+
+  .carousel .slides.slides-texts {
+    width: var(--slider-adaptive-width);
   }
 
   .carousel .slides {
     width: 100%;
   }
 
-  .carousel .slides img {
+  .carousel .slides img,
+  .carousel .slides span {
     width: var(--slider-adaptive-width);
   }
 
