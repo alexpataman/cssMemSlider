@@ -36,6 +36,15 @@ a:hover {
   text-decoration: underline;
 }
 
+ol {
+  margin: 0;
+  padding-left: 20rem;
+}
+
+ol li {
+  margin-bottom: 10px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -133,7 +142,8 @@ main section:last-child {
     width: 100%;
   }
   header,
-  footer {
+  footer,
+  .check {
     padding: 0 20rem;
   }
 }
