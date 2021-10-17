@@ -130,43 +130,23 @@
 }
 
 .carousel #slide-1:checked ~ .slides li:nth-child(1) {
-  margin-left: calc(0 * var(--slider-max-width));
+  margin-left: calc(0 * 100%);
 }
 
 .carousel #slide-2:checked ~ .slides li:nth-child(1) {
-  margin-left: calc(-1 * var(--slider-max-width));
+  margin-left: calc(-1 * 100%);
 }
 
 .carousel #slide-3:checked ~ .slides li:nth-child(1) {
-  margin-left: calc(-2 * var(--slider-max-width));
+  margin-left: calc(-2 * 100%);
 }
 
 .carousel #slide-4:checked ~ .slides li:nth-child(1) {
-  margin-left: calc(-3 * var(--slider-max-width));
+  margin-left: calc(-3 * 100%);
 }
 
 .carousel #slide-5:checked ~ .slides li:nth-child(1) {
-  margin-left: calc(-4 * var(--slider-max-width));
-}
-
-.carousel #slide-1:checked ~ .slides-texts li:nth-child(1) {
-  margin-left: calc(0 * var(--slider-max-text-width));
-}
-
-.carousel #slide-2:checked ~ .slides-texts li:nth-child(1) {
-  margin-left: calc(-1 * var(--slider-max-text-width));
-}
-
-.carousel #slide-3:checked ~ .slides-texts li:nth-child(1) {
-  margin-left: calc(-2 * var(--slider-max-text-width));
-}
-
-.carousel #slide-4:checked ~ .slides-texts li:nth-child(1) {
-  margin-left: calc(-3 * var(--slider-max-text-width));
-}
-
-.carousel #slide-5:checked ~ .slides-texts li:nth-child(1) {
-  margin-left: calc(-4 * var(--slider-max-text-width));
+  margin-left: calc(-4 * 100%);
 }
 
 /* 
@@ -209,41 +189,18 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
     margin: 0 0 5rem;
   }
 
+  .carousel .slides {
+    width: 100%;
+  }
+
   .carousel .slides.slides-texts li,
   .carousel .slides li {
     min-width: var(--slider-adaptive-width);
   }
 
+  .carousel .slides img,
+  .carousel .slides span,
   .carousel .slides.slides-texts {
     width: var(--slider-adaptive-width);
-  }
-
-  .carousel .slides {
-    width: 100%;
-  }
-
-  .carousel .slides img,
-  .carousel .slides span {
-    width: var(--slider-adaptive-width);
-  }
-
-  .carousel #slide-1:checked ~ .slides li:nth-child(1) {
-    margin-left: calc(0 * var(--slider-adaptive-width));
-  }
-
-  .carousel #slide-2:checked ~ .slides li:nth-child(1) {
-    margin-left: calc(-1 * var(--slider-adaptive-width));
-  }
-
-  .carousel #slide-3:checked ~ .slides li:nth-child(1) {
-    margin-left: calc(-2 * var(--slider-adaptive-width));
-  }
-
-  .carousel #slide-4:checked ~ .slides li:nth-child(1) {
-    margin-left: calc(-3 * var(--slider-adaptive-width));
-  }
-
-  .carousel #slide-5:checked ~ .slides li:nth-child(1) {
-    margin-left: calc(-4 * var(--slider-adaptive-width));
   }
 }
