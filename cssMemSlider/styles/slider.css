@@ -1,18 +1,18 @@
 :root {
-  --slider-max-width: 600px;
+  --slider-max-width: 600rem;
   --slider-adaptive-width: calc(
     100vw - var(--slider-padding) * 2 - var(--slider-border-size) * 2
   );
-  --slider-padding: 20px;
-  --slider-border-size: 5px;
+  --slider-padding: 20rem;
+  --slider-border-size: 5rem;
 }
 
 .carousel {
   width: 100%;
   background: #25282a;
-  border-radius: 4px;
-  border: 5px solid #f6f8fa;
-  box-shadow: 1px 1px var(--slider-border-size) rgba(0, 0, 0, 0.3);
+  border-radius: 4rem;
+  border: 5rem solid #f6f8fa;
+  box-shadow: 1rem 1rem var(--slider-border-size) rgba(0, 0, 0, 0.3);
   padding: var(--slider-padding);
   max-width: calc(
     var(--slider-max-width) + var(--slider-border-size) * 2 +
@@ -24,7 +24,8 @@
 
 .carousel {
   display: grid;
-  grid-template-columns: 1fr repeat(5, 20px);
+  grid-template-columns: 1fr repeat(5, 20rem);
+  font-size: 16rem;
 }
 
 .carousel .slides {
@@ -55,32 +56,43 @@
 .carousel input + label {
   content: "";
   display: block;
-  width: 10px;
-  height: 10px;
-  background: #79a9ef;
-  border-radius: 50%;
   cursor: pointer;
-  margin-top: -17px;
+  margin-top: -20rem;
   z-index: 1;
+  height: 20rem;
+  width: 20rem;
+  background: #25282a;
 }
 
-.carousel input + label:hover {
+.carousel input + label:after {
+  content: "";
+  width: 10rem;
+  height: 10rem;
+  background: #79a9ef;
+  border-radius: 50%;
+  display: block;
+  margin: 5rem auto;
+}
+
+.carousel input + label:hover:after {
   background: #fff;
 }
-.carousel input:checked + label {
-  border: 1px solid #79a9ef;
+.carousel input:checked + label:after {
+  border: 1rem solid #79a9ef;
   background: transparent;
+  box-sizing: border-box;
 }
 
 .carousel .slides span {
   display: block;
-  margin-top: 10px;
+  margin-top: 10rem;
 }
 
 .carousel ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-radius: 5rem;
 }
 
 .carousel .slides {
@@ -119,7 +131,7 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
 @media screen and (max-width: 650px) {
   .carousel {
     display: grid;
-    grid-template-columns: 1fr repeat(5, 20px) 1fr;
+    grid-template-columns: 1fr repeat(5, 20rem) 1fr;
   }
 
   .carousel .slides {
@@ -135,11 +147,11 @@ Max-width here should be = calc(--slider-padding*2 + --slider-border-size*2 + sl
 
   .carousel .slides span {
     display: block;
-    margin-top: 40px;
+    margin-top: 40rem;
   }
 
   .carousel input + label {
-    margin-top: -50px;
+    margin-top: -50rem;
   }
 
   .carousel {
